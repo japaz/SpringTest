@@ -15,7 +15,7 @@ import demo.repository.DeveloperRepository;
 import demo.repository.SkillRepository;
 
 @SpringBootApplication
-public class SpringTestApplication implements CommandLineRunner {
+public class SpringBootTestApplication implements CommandLineRunner {
 
     @Autowired
     DeveloperRepository developerRepository;
@@ -24,7 +24,7 @@ public class SpringTestApplication implements CommandLineRunner {
     SkillRepository skillRepository;	
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringTestApplication.class, args);
+		SpringApplication.run(SpringBootTestApplication.class, args);
 	}
 	
 	@Override
