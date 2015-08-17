@@ -16,6 +16,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
 	        .authorizeRequests()
 	            .antMatchers("/", "/home").permitAll()
+	            .antMatchers("/developers", "/developer").hasRole("USER")
+	            .antMatchers("/skills", "/skill").hasRole("ADMIN")
 	            .anyRequest().authenticated()
 	            .and()
 	        .formLogin()
@@ -30,6 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                .withUser("user").password("password").roles("USER").and()
+                .withUser("admin").password("password").roles("USER","ADMIN");
+            
     }	
 }
